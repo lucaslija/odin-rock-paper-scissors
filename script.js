@@ -3,8 +3,10 @@ function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3) + 1;
     console.log(computerChoice);
 
+    /** Initialize returnedChoice string */
     let returnedChoice = '';
 
+    /** Convert random number to relevant string */
     if (computerChoice === 1) {
         returnedChoice = 'Rock';
     } else if (computerChoice === 2) {
@@ -14,10 +16,13 @@ function getComputerChoice() {
     }
 
     console.log(returnedChoice);
+    /** Return the randomly chosen string */
     return returnedChoice;
 }
 
+/** Prompt player to choose Rock, Paper, Scissors */
 let playerSelection = prompt("Rock, Paper, or Scissors?");
+/** Convert player input string to lowercase for standardization */
 playerSelection = playerSelection.toLowerCase();
 console.log(playerSelection);
 
