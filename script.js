@@ -18,12 +18,12 @@ function getComputerChoice() {
 }
 
 /** Prompt player to choose Rock, Paper, Scissors */
-let playerSelection = prompt("Rock, Paper, or Scissors?");
+const playerSelection = prompt("Rock, Paper, or Scissors?");
 /** Convert player input string to lowercase for standardization */
 playerSelection = playerSelection.toLowerCase();
 
 /** Store computer selection in a variable */
-let computerSelection = getComputerChoice();
+const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection) {
     let outcomeString = '';
