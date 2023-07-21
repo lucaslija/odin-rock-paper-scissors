@@ -25,6 +25,7 @@ playerSelection = playerSelection.toLowerCase();
 /** Store computer selection in a variable */
 const computerSelection = getComputerChoice();
 
+/** Function to play a single round of Rock, Paper, Scissors */
 function playRound(playerSelection, computerSelection) {
     let outcomeString = '';
 
