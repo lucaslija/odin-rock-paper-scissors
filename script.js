@@ -40,8 +40,6 @@ function playRound(playerSelection, computerSelection) {
     return outcomeString;
 }
 
-console.log(playRound(playerSelection, computerSelection));
-
 function game() {
     /** Instantiate score variables and win/lose string */
     let playerScore = 0;
@@ -49,7 +47,7 @@ function game() {
     let gameResult = '';
 
     /** Loop over five turns */
-    for (n = 1; n <= 5; n++) {
+    for (let n = 1; n <= 5; n++) {
         /** Prompt player to choose Rock, Paper, Scissors */
         let playerSelection = prompt("Rock, Paper, or Scissors?");
         /** Convert player input string to lowercase for standardization */
