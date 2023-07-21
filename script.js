@@ -26,4 +26,5 @@ let playerSelection = prompt("Rock, Paper, or Scissors?");
 playerSelection = playerSelection.toLowerCase();
 console.log(playerSelection);
 
-getComputerChoice();
+/** Store computer selection in a variable */
+let computerSelection = getComputerChoice();
