@@ -47,3 +47,5 @@ function playRound(playerSelection, computerSelection) {
 
     return outcomeString;
 }
+
+console.log(playRound(playerSelection, computerSelection));
