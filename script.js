@@ -43,7 +43,12 @@ function playRound(playerSelection, computerSelection) {
 console.log(playRound(playerSelection, computerSelection));
 
 function game() {
-    let score = 0;
+    /** Instantiate score variables and win/lose string */
+    let playerScore = 0;
+    let computerScore = 0;
+    let gameResult = '';
+
+    /** Loop over five turns */
     for (n = 1; n <= 5; n++) {
         /** Prompt player to choose Rock, Paper, Scissors */
         let playerSelection = prompt("Rock, Paper, or Scissors?");
@@ -53,6 +58,29 @@ function game() {
         /** Store computer selection in a variable */
         const computerSelection = getComputerChoice();
 
-        roundResultString = playRound
+        /** Play a round and get the resulting string */
+        roundResultString = playRound(playerSelection, computerSelection);
+        console.log(roundResultString);
+
+        /** Determine winner/loser and adjust score accordingly */
+        if (roundResultString.startsWith("You win!")) {
+            playerScore++;
+        } else if (roundResultString.startsWith("You lose!")) {
+            computerScore++;
+        }
     }
+
+    /** Report final winner/loser */
+    if (playerScore > computerScore) {
+        gameResult = "Congratulations! You won the game!";
+    } else if (playerScore < computerScore) {
+        gameResult = "You lost! Better luck next time.";
+    } else {
+        gameResult = "Looks like it's a tie! Well, it's better than losing, right?";
+    }
+
+    return gameResult;
 }
+
+finalResult = game();
+console.log(finalResult);
