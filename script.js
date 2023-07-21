@@ -17,14 +17,6 @@ function getComputerChoice() {
     return returnedChoice;
 }
 
-/** Prompt player to choose Rock, Paper, Scissors */
-let playerSelection = prompt("Rock, Paper, or Scissors?");
-/** Convert player input string to lowercase for standardization */
-playerSelection = playerSelection.toLowerCase();
-
-/** Store computer selection in a variable */
-const computerSelection = getComputerChoice();
-
 /** Function to play a single round of Rock, Paper, Scissors */
 function playRound(playerSelection, computerSelection) {
     let outcomeString = '';
@@ -49,3 +41,18 @@ function playRound(playerSelection, computerSelection) {
 }
 
 console.log(playRound(playerSelection, computerSelection));
+
+function game() {
+    let score = 0;
+    for (n = 1; n <= 5; n++) {
+        /** Prompt player to choose Rock, Paper, Scissors */
+        let playerSelection = prompt("Rock, Paper, or Scissors?");
+        /** Convert player input string to lowercase for standardization */
+        playerSelection = playerSelection.toLowerCase();
+
+        /** Store computer selection in a variable */
+        const computerSelection = getComputerChoice();
+
+        roundResultString = playRound
+    }
+}
