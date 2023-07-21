@@ -12,6 +12,9 @@ function getComputerChoice() {
     } else {
         returnedChoice = 'Scissors'
     }
+
+    console.log(returnedChoice);
+    return returnedChoice;
 }
 
 getComputerChoice();
