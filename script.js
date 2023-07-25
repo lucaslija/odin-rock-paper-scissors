@@ -57,7 +57,8 @@ function game() {
         const computerSelection = getComputerChoice();
 
         /** Play a round and get the resulting string */
-        console.log(playRound(playerSelection, computerSelection));
+        roundResultString = playRound(playerSelection, computerSelection);
+        alert(roundResultString);
 
         /** Determine winner/loser and adjust score accordingly */
         if (roundResultString.startsWith("You win!")) {
