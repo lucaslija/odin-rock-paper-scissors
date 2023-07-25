@@ -40,7 +40,7 @@ function playRound(playerSelection, computerSelection) {
     return outcomeString;
 }
 
-function game() {
+async function game() {
     /** Instantiate score variables and win/lose string */
     let playerScore = 0;
     let computerScore = 0;
