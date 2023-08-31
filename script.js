@@ -49,6 +49,8 @@ async function game() {
     /** Store computer selection in a variable */
     const computerSelection = getComputerChoice();
 
+    /** Onclick event listener triggers playRound with correct selection
+     *  for the given button */
     /** Play a round and get the resulting string */
     roundResultString = playRound(playerSelection, computerSelection);
     console.log(roundResultString);
