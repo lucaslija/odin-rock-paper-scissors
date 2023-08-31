@@ -54,11 +54,10 @@ async function game() {
 
     /** Onclick event listener triggers playRound with correct selection
      *  for the given button */
+    let roundResultString = '';
     buttons.forEach((button) => {
-        button.addEventListener('click', playRound(button.id, computerSelection));
+        roundResultString = button.addEventListener('click', playRound(button.id, computerSelection));
     })
-    
-    /** Play a round and get the resulting string */
 
     /** Determine winner/loser and adjust score accordingly */
     if (roundResultString.startsWith("You win!")) {
