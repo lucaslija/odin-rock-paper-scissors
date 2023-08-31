@@ -1,7 +1,5 @@
 /** Instantiate variables for button elements */
-const rock = document.getElementById("rock");
-const paper = document.getElementById("paper");
-const scissors = document.getElementById("scissors");
+const buttons = document.querySelectorAll('button');
 
 function getComputerChoice() {
     /** Generate a number between 1 and 3 */
@@ -56,13 +54,11 @@ async function game() {
 
     /** Onclick event listener triggers playRound with correct selection
      *  for the given button */
-    rock.addEventListener('click', playRound('rock', computerSelection));
-    paper.addEventListener('click', playRound('paper', computerSelection));
-    scissors.addEventListener('click', playRound('scissors', computerSelection));
+    buttons.forEach((button) => {
+        button.addEventListener('click', playRound(button.id, computerSelection));
+    })
     
     /** Play a round and get the resulting string */
-    roundResultString = playRound(playerSelection, computerSelection);
-    console.log(roundResultString);
 
     /** Determine winner/loser and adjust score accordingly */
     if (roundResultString.startsWith("You win!")) {
