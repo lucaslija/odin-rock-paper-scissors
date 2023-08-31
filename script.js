@@ -56,6 +56,10 @@ async function game() {
 
     /** Onclick event listener triggers playRound with correct selection
      *  for the given button */
+    rock.addEventListener('click', playRound('rock', computerSelection));
+    paper.addEventListener('click', playRound('paper', computerSelection));
+    scissors.addEventListener('click', playRound('scissors', computerSelection));
+    
     /** Play a round and get the resulting string */
     roundResultString = playRound(playerSelection, computerSelection);
     console.log(roundResultString);
