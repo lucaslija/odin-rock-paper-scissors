@@ -46,26 +46,24 @@ async function game() {
     let computerScore = 0;
     let gameResult = '';
 
-    /** Loop over five turns */
-    for (let n = 1; n <= 5; n++) {
-        /** Prompt player to choose Rock, Paper, Scissors */
-        let playerSelection = prompt("Rock, Paper, or Scissors?");
-        /** Convert player input string to lowercase for standardization */
-        playerSelection = playerSelection.toLowerCase();
 
-        /** Store computer selection in a variable */
-        const computerSelection = getComputerChoice();
+    /** Prompt player to choose Rock, Paper, Scissors */
+    let playerSelection = prompt("Rock, Paper, or Scissors?");
+    /** Convert player input string to lowercase for standardization */
+    playerSelection = playerSelection.toLowerCase();
 
-        /** Play a round and get the resulting string */
-        roundResultString = playRound(playerSelection, computerSelection);
-        console.log(roundResultString);
+    /** Store computer selection in a variable */
+    const computerSelection = getComputerChoice();
 
-        /** Determine winner/loser and adjust score accordingly */
-        if (roundResultString.startsWith("You win!")) {
-            playerScore++;
-        } else if (roundResultString.startsWith("You lose!")) {
-            computerScore++;
-        }
+    /** Play a round and get the resulting string */
+    roundResultString = playRound(playerSelection, computerSelection);
+    console.log(roundResultString);
+
+    /** Determine winner/loser and adjust score accordingly */
+    if (roundResultString.startsWith("You win!")) {
+        playerScore++;
+    } else if (roundResultString.startsWith("You lose!")) {
+        computerScore++;
     }
 
     /** Report final winner/loser */
