@@ -46,12 +46,6 @@ async function game() {
     let computerScore = 0;
     let gameResult = '';
 
-
-    /** Prompt player to choose Rock, Paper, Scissors */
-    let playerSelection = prompt("Rock, Paper, or Scissors?");
-    /** Convert player input string to lowercase for standardization */
-    playerSelection = playerSelection.toLowerCase();
-
     /** Store computer selection in a variable */
     const computerSelection = getComputerChoice();
 
