@@ -3,8 +3,8 @@ const rockBtn = document.getElementById("rock");
 const paperBtn = document.getElementById("paper");
 const scissorsBtn = document.getElementById("scissors");
 
-const playerDisplay = document.getElementById("player-score");
-const cpuDisplay = document.getElementById("computer-score");
+const playerScoreDisplay = document.getElementById("player-score");
+const cpuScoreDisplay = document.getElementById("computer-score");
 const outcomeP = document.getElementById("outcome");
 
 let playerScore = 0;
