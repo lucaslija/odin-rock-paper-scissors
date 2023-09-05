@@ -1,6 +1,16 @@
-/** Instantiate variables */
-const buttons = document.querySelectorAll('button');
+/** Variables */
+const rockBtn = document.getElementById("rock");
+const paperBtn = document.getElementById("paper");
+const scissorsBtn = document.getElementById("scissors");
 
+const pScoreSpan = document.getElementById("player-score");
+const cpuScoreSpan = document.getElementById("computer-score");
+const outcomeP = document.getElementById("outcome");
+
+let playerScore = 0;
+let computerScore = 0;
+
+/** Randomly generate computer choice */
 function getComputerChoice() {
     /** Generate a number between 1 and 3 */
     let computerChoice = Math.floor(Math.random() * 3) + 1;
@@ -20,64 +30,60 @@ function getComputerChoice() {
     return returnedChoice;
 }
 
-/** Function to play a single round of Rock, Paper, Scissors */
-function playRound(playerSelection, computerSelection) {
+function disableButtons() {
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled = true;
+}
+
+/** Play a single round of Rock, Paper, Scissors */
+function playRound(playerSelection) {
     let outcomeString = '';
+    const computerSelection = getComputerChoice();
 
     if (playerSelection == computerSelection) {
         outcomeString = "It's a tie! Play again.";
     } else if (playerSelection === "rock" && computerSelection === "paper") {
+        computerScore++;
         outcomeString = "You lose! Paper beats Rock.";
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
+        playerScore++;
         outcomeString = "You win! Rock beats Scissors.";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
+        playerScore++;
         outcomeString = "You win! Paper beats Rock.";
     } else if (playerSelection === "paper" && computerSelection === "scissors") {
+        computerScore++;
         outcomeString = "You lose! Scissors beats Paper.";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
+        computerScore++;
         outcomeString = "You lose! Rock beats Scissors.";
     } else {
+        playerScore++;
         outcomeString = "You win! Scissors beats Paper.";
     }
 
-    return outcomeString;
+    outcomeP.innerHTML = "<h1>" + outcomeString + "</h1>";
+    pScoreSpan.textContent = playerScore;
+    cpuScoreSpan.textContent = computerScore;
+
+    if (playerScore === 5) {
+        outcomeP.innerHTML = "<h1>You reached five points and won the game!<h1>";
+        disableButtons();
+    } else if (computerScore === 5) {
+        outcomeP.innerHTML = "<h1>The computer reached five points and won the game!<h1>";
+        disableButtons();
+    }
 }
 
-async function game() {
-    /** Instantiate score variables and win/lose string */
-    let playerScore = 0;
-    let computerScore = 0;
-    let gameResult = '';
+rockBtn.addEventListener('click', () => {
+    playRound('rock');
+});
 
-    /** Store computer selection in a variable */
-    const computerSelection = getComputerChoice();
+paperBtn.addEventListener('click', () => {
+    playRound('paper');
+});
 
-    /** Onclick event listener triggers playRound with correct selection
-     *  for the given button */
-    let roundResultString = 'default';
-    buttons.forEach((button) => {
-        roundResultString = button.addEventListener('click', playRound(button.id, computerSelection));
-    })
-    console.log(roundResultString);
-
-    /** Determine winner/loser and adjust score accordingly */
-    if (roundResultString.startsWith("You win!")) {
-        playerScore++;
-    } else if (roundResultString.startsWith("You lose!")) {
-        computerScore++;
-    }
-
-    /** Report final winner/loser */
-    if (playerScore > computerScore) {
-        gameResult = "Congratulations! You won the game!";
-    } else if (playerScore < computerScore) {
-        gameResult = "You lost! Better luck next time.";
-    } else {
-        gameResult = "Looks like it's a tie! Well, it's better than losing, right?";
-    }
-
-    return gameResult;
-}
-
-finalResult = game();
-console.log(finalResult);
+scissorsBtn.addEventListener('click', () => {
+    playRound('scissors');
+});
