@@ -1,4 +1,4 @@
-/** Instantiate variables for button elements */
+/** Instantiate variables */
 const buttons = document.querySelectorAll('button');
 
 function getComputerChoice() {
@@ -54,10 +54,11 @@ async function game() {
 
     /** Onclick event listener triggers playRound with correct selection
      *  for the given button */
-    let roundResultString = '';
+    let roundResultString = 'default';
     buttons.forEach((button) => {
         roundResultString = button.addEventListener('click', playRound(button.id, computerSelection));
     })
+    console.log(roundResultString);
 
     /** Determine winner/loser and adjust score accordingly */
     if (roundResultString.startsWith("You win!")) {
